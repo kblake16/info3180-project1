@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block main %}
+    {%if prop%}
+        <div class="view">
+                <div class="single">
+                    <img src="{{ url_for('get_Image', filename = prop.photo)}}"/>
+                    <div class="info">
+                        <h2>{{ prop.title }}</h2>
+                        <div class="label">
+                            <p class="price"><span>{{ prop.price }}</span></p>
+                            <p class="type"><span>{{ prop.propType }}</span></p>
+                        </div>
+                        <p>{{prop.description}}</p>
+                        <div class="label">
+                            <p class="style"><img src="{{ url_for('get_Icon',filename = 'bed.png')}}"/>{{ prop.rooms }} Bedrooms</p>
+                            <p class="style"><img src="{{ url_for('get_Icon',filename = 'bath.png')}}"/>{{ prop.bath }} Bathrooms</p>
+                        </div>
+                        <p class="location"><img src="{{ url_for('get_Icon',filename = 'locationTag.png')}}"/>{{ prop.location }}</p>
+                        <p class="button"><span>Email Realtor</span></p>
+                    </div>
+                </div>
+        </div>
+    {%else%}
+        <p>There are currently no properties to display.</p>
+    {%endif%}
+{% endblock %}

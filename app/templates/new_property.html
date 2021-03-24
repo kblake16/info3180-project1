@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1 class="page-header">Add New Property</h1>
+
+<form method = "POST" action="{{url_for('new_property')}}" enctype="multipart/form-data" class="show">
+    {{form.csrf_token}}
+    <div class = "form">
+            <div class= "input">
+            <label>{{form.title.label}}</label>
+            {{form.title(class = "box")}}
+            </div>
+        
+            <div class= "input">
+            <label>{{form.description.label}}</label>
+            {{form.description(class = "textBox",rows='5',cols='50')}}
+            </div>
+
+        <div class = "section">
+            <div>
+                <label>{{form.rooms.label}}</label>
+                {{form.rooms (class = "box")}}
+            </div>
+            
+            <div>
+                <label>{{form.bath.label}}</label>
+                {{form.bath (class = "box")}}
+            </div>
+
+            <div>
+                <label>{{form.price.label}}</label>
+                {{form.price (class = "box")}}
+            </div>
+
+            <div>
+                <label>{{form.propType.label}}</label>
+                {{form.propType (class = "box")}}
+            </div>
+
+            <div>
+                <label>{{form.location.label}}</label>
+                {{form.location (class = "box")}}
+            </div>
+        </div>
+
+        <div class= "input">
+        <label>{{form.photo.label}}</label>
+        {{form.photo(class="file")}}
+        </div>
+        
+        <div class= "input">
+        <button type = "submit" name = "submit" >Add Property</button>
+        </div>
+    </div>
+</form>
+{% endblock %}
